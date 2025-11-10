@@ -5,7 +5,7 @@ import LogoutButton from "./LogoutButton";
 
 const IP = "18.229.126.103";
 
-const BASE_URL = `http://${IP}:8080`;
+const BASE_URL = `https://${IP}:8080`;
 
 
 export default function PessoasApp() {
@@ -35,6 +35,7 @@ export default function PessoasApp() {
         // Decodificar token para verificar roles
         const payload = JSON.parse(atob(accessToken.split('.')[1]));
         const roles = payload["https://dev-c5cya7ea1phr4j8p.us.auth0.com/roles"] || [];
+        console.log(accessToken);
         setIsAdmin(roles.includes("ADMIN"));
       } catch (e) {
         console.error('Erro ao buscar token:', e);
