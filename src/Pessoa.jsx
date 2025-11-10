@@ -3,9 +3,10 @@ import React, { useEffect, useState } from "react";
 import LoginButton from "./LoginButton";
 import LogoutButton from "./LogoutButton";
 
-const IP = "18.229.126.103";
-
-const BASE_URL = `https://${IP}:8080`;
+// Em produção usa proxy do Vercel, em desenvolvimento usa IP direto
+const BASE_URL = window.location.hostname === 'localhost' 
+  ? 'http://18.229.126.103:8080'
+  : '/api';
 
 
 export default function PessoasApp() {
